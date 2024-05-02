@@ -24,7 +24,7 @@ class SwitchAccountScreen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 250,
+                  top: 230,
                   child: ClipRRect(
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
@@ -59,32 +59,20 @@ class SwitchAccountScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 20),
-                            const Text(
-                              'Alireza Seif',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                            Text('Alireza Seif',
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium),
                             const SizedBox(height: 20),
                             ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(
-                                  0xffF35383,
-                                ),
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
+                              style:
+                                  Theme.of(context).elevatedButtonTheme.style,
                               onPressed: () {},
                               child: const Text('Continue'),
                             ),
                             const SizedBox(height: 20),
-                            const Text(
+                            Text(
                               'Switch Account',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
+                              style: Theme.of(context).textTheme.headlineMedium,
                             ),
                           ],
                         ),
@@ -95,11 +83,25 @@ class SwitchAccountScreen extends StatelessWidget {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(top: 132, bottom: 63),
-            child: Text(
-              "Don't have an account?",
-              style: TextStyle(color: Colors.white, fontSize: 20),
+          Padding(
+            padding: const EdgeInsets.only(top: 132, bottom: 63),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Don't have an account? / ",
+                  style: TextStyle(
+                      color: Colors.grey[700], fontSize: 16, fontFamily: 'GB'),
+                ),
+                const Text(
+                  "Sign up",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: 'GB',
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
           ),
         ],
