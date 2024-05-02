@@ -1,10 +1,10 @@
 name: instagram_clone
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -21,3 +21,34 @@ flutter:
   assets:
     - assets/
     - assets/images/
+
+fonts:
+  - family: GR
+    fonts:
+      - asset: assets/fonts/GilroyRegular.ttf
+        weight: 400
+
+  - family: GM
+    fonts:
+      - asset: assets/fonts/GilroyMedium.ttf
+        weight: 500
+
+  - family: GB
+    fonts:
+      - asset: assets/fonts/GilroyBold.ttf
+        weight: 700
+
+  - family: GEB
+    fonts:
+      - asset: assets/fonts/GilroyExtraBold.ttf
+        weight: 800
+
+  - family: GH
+    fonts:
+      - asset: assets/fonts/GilroyHeavy.ttf
+        weight: 900
+
+  - family: SM
+    fonts:
+      - asset: assets/fonts/ShabnamMedium.ttf
+        weight: 500
