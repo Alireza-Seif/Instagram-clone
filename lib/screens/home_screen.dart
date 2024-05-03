@@ -32,19 +32,16 @@ class HomeScreen extends StatelessWidget {
 
   DottedBorder _getStoryBox() {
     return DottedBorder(
-      borderType: BorderType.RRect,
+      borderType: BorderType.Circle,
       radius: const Radius.circular(17),
       color: const Color(0xffF35383),
       strokeWidth: 2,
-      dashPattern: const [50, 10],
+      dashPattern: const [180, 5],
       padding: const EdgeInsets.all(4),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(15)),
-        child: SizedBox(
-          height: 58,
-          width: 58,
-          child: Image.asset('assets/images/my_pf.png'),
-        ),
+      child: const ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        child: CircleAvatar(
+            radius: 28, foregroundImage: AssetImage('assets/images/my_pf.png')),
       ),
     );
   }
@@ -56,14 +53,14 @@ class HomeScreen extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(17),
+        borderRadius: BorderRadius.circular(30),
       ),
       child: Container(
         width: 60,
         height: 60,
         decoration: BoxDecoration(
           color: const Color(0xff1C1F2E),
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(30),
         ),
         child: Image.asset('assets/images/icon_plus.png'),
       ),
