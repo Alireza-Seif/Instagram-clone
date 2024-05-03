@@ -8,30 +8,45 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff1C1F2E),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: const Color(0xff1C1F2E),
+        title: SizedBox(
+            width: 128,
+            height: 24,
+            child: Image.asset('assets/images/moodinger_logo.png')),
+        actions: [
+          Container(
+            height: 24,
+            width: 24,
+            margin: const EdgeInsets.only(right: 18),
+            child: Image.asset('assets/images/icon_direct.png'),
+          )
+        ],
+      ),
       body: SafeArea(
-        child: Center(
-            child: _getStoryBox()),
+        child: Center(child: _getStoryBox()),
       ),
     );
   }
 
   DottedBorder _getStoryBox() {
     return DottedBorder(
-        borderType: BorderType.RRect,
-        radius: const Radius.circular(17),
-        color: const Color(0xffF35383),
-        strokeWidth: 2,
-        dashPattern: const [50,10],
-        padding: const EdgeInsets.all(4),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(15)),
-          child: SizedBox(
-            height: 58,
-            width: 58,
-            child: Image.asset('assets/images/my_pf.png'),
-          ),
+      borderType: BorderType.RRect,
+      radius: const Radius.circular(17),
+      color: const Color(0xffF35383),
+      strokeWidth: 2,
+      dashPattern: const [50, 10],
+      padding: const EdgeInsets.all(4),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
+        child: SizedBox(
+          height: 58,
+          width: 58,
+          child: Image.asset('assets/images/my_pf.png'),
         ),
-      );
+      ),
+    );
   }
 
   Widget _getAddStoryBox() {
