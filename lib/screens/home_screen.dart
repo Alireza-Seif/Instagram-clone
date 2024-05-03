@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,25 +10,47 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: const Color(0xff1C1F2E),
       body: SafeArea(
         child: Center(
-          child: Container(
-            width: 64,
-            height: 64,
-            padding: const EdgeInsets.all(3),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(17),
-            ),
-            child: Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                color: const Color(0xff1C1F2E),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Image.asset('assets/images/icon_plus.png'),
-            ),
+            child: _getStoryBox()),
+      ),
+    );
+  }
+
+  DottedBorder _getStoryBox() {
+    return DottedBorder(
+        borderType: BorderType.RRect,
+        radius: const Radius.circular(17),
+        color: const Color(0xffF35383),
+        strokeWidth: 2,
+        dashPattern: const [50,10],
+        padding: const EdgeInsets.all(4),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(15)),
+          child: SizedBox(
+            height: 58,
+            width: 58,
+            child: Image.asset('assets/images/my_pf.png'),
           ),
         ),
+      );
+  }
+
+  Widget _getAddStoryBox() {
+    return Container(
+      width: 64,
+      height: 64,
+      padding: const EdgeInsets.all(3),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(17),
+      ),
+      child: Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+          color: const Color(0xff1C1F2E),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Image.asset('assets/images/icon_plus.png'),
       ),
     );
   }
