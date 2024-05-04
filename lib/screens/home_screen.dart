@@ -48,6 +48,7 @@ class HomeScreen extends StatelessWidget {
 
   ListView _getPostList() {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: 10,
       itemBuilder: (context, index) {
