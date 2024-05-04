@@ -1,9 +1,6 @@
 import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -30,7 +27,15 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child: _getPostList(),
+          child: SizedBox(
+            height: 120,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return index == 0 ? _getAddStoryBox() : _getStoryBox();
+              },
+            ),
+          ),
         ),
       ),
     );
@@ -38,18 +43,18 @@ class HomeScreen extends StatelessWidget {
 
   ListView _getPostList() {
     return ListView.builder(
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-                const SizedBox(height: 34),
-                _getHeaderPost(),
-                const SizedBox(height: 24),
-                _getPostContent(),
-              ],
-            );
-          },
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return Column(
+          children: [
+            const SizedBox(height: 34),
+            _getHeaderPost(),
+            const SizedBox(height: 24),
+            _getPostContent(),
+          ],
         );
+      },
+    );
   }
 
   Widget _getPostContent() {
@@ -171,39 +176,67 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  DottedBorder _getStoryBox() {
-    return DottedBorder(
-      borderType: BorderType.Circle,
-      radius: const Radius.circular(17),
-      color: const Color(0xffF35383),
-      strokeWidth: 2,
-      dashPattern: const [180, 5],
-      padding: const EdgeInsets.all(4),
-      child: const ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        child: CircleAvatar(
-            radius: 19, foregroundImage: AssetImage('assets/images/my_pf.png')),
+  Widget _getStoryBox() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+      child: Column(
+        children: [
+          DottedBorder(
+            borderType: BorderType.Circle,
+            radius: const Radius.circular(17),
+            color: const Color(0xffF35383),
+            strokeWidth: 2,
+            dashPattern: const [40, 10],
+            padding: const EdgeInsets.all(4),
+            child: const ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              ),
+              child: CircleAvatar(
+                radius: 28,
+                foregroundImage: AssetImage('assets/images/my_pf.png'),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            'a',
+            style: TextStyle(color: Colors.white),
+          ),
+        ],
       ),
     );
   }
 
   Widget _getAddStoryBox() {
     return Container(
-      width: 64,
-      height: 64,
-      padding: const EdgeInsets.all(3),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Container(
-        width: 60,
-        height: 60,
-        decoration: BoxDecoration(
-          color: const Color(0xff1C1F2E),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child: Image.asset('assets/images/icon_plus.png'),
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+      child: Column(
+        children: [
+          Container(
+            width: 64,
+            height: 64,
+            padding: const EdgeInsets.all(3),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                color: const Color(0xff1C1F2E),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Image.asset('assets/images/icon_plus.png'),
+            ),
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            'Your Story',
+            style: TextStyle(color: Colors.white),
+          ),
+        ],
       ),
     );
   }
