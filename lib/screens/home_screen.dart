@@ -25,7 +25,35 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Center(child: _getStoryBox()),
+        child: Center(
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18),
+          child: Row(
+            children: [
+              _getStoryBox(),
+              const Padding(
+                padding: EdgeInsets.only(left: 12),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Alireza Seif',
+                      style: TextStyle(
+                          fontFamily: 'GB', color: Colors.white, fontSize: 12),
+                    ),
+                    Text(
+                      'برنامه نویس موبایل',
+                      style: TextStyle(fontFamily: 'SM', color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(),
+              const Icon(Icons.more_vert, color: Colors.white),
+            ],
+          ),
+        )),
       ),
     );
   }
@@ -41,7 +69,7 @@ class HomeScreen extends StatelessWidget {
       child: const ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(15)),
         child: CircleAvatar(
-            radius: 28, foregroundImage: AssetImage('assets/images/my_pf.png')),
+            radius: 19, foregroundImage: AssetImage('assets/images/my_pf.png')),
       ),
     );
   }
