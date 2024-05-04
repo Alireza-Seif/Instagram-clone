@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
@@ -26,23 +27,28 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Center(
-          child: SizedBox(
-            height: 120,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext context, int index) {
-                return index == 0 ? _getAddStoryBox() : _getStoryBox();
-              },
+          child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 120,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return index == 0 ? _getAddStoryBox() : _getStoryListBox();
+                },
+              ),
             ),
-          ),
+           _getPostList(),
+          ],
         ),
-      ),
+      )),
     );
   }
 
   ListView _getPostList() {
     return ListView.builder(
+      shrinkWrap: true,
       itemCount: 10,
       itemBuilder: (context, index) {
         return Column(
@@ -176,7 +182,27 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _getStoryBox() {
+  Widget _getStoryBox(){
+    return  DottedBorder(
+            borderType: BorderType.Circle,
+            radius: const Radius.circular(17),
+            color: const Color(0xffF35383),
+            strokeWidth: 2,
+            dashPattern: const [40, 10],
+            padding: const EdgeInsets.all(4),
+            child: const ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              ),
+              child: CircleAvatar(
+                radius: 16,
+                foregroundImage: AssetImage('assets/images/my_pf.png'),
+              ),
+            ),
+          );
+  }
+
+  Widget _getStoryListBox() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
       child: Column(
