@@ -1,5 +1,9 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,34 +30,123 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: Row(
-            children: [
-              _getStoryBox(),
-              const Padding(
-                padding: EdgeInsets.only(left: 12),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Alireza Seif',
-                      style: TextStyle(
-                          fontFamily: 'GB', color: Colors.white, fontSize: 12),
+          child: Container(
+            height: 440,
+            width: 394,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Positioned(
+                  top: 0,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.asset(
+                      'assets/images/post_cover.png',
                     ),
-                    Text(
-                      'برنامه نویس موبایل',
-                      style: TextStyle(fontFamily: 'SM', color: Colors.white),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-              const Spacer(),
-              const Icon(Icons.more_vert, color: Colors.white),
-            ],
+                const Positioned(
+                  top: 15,
+                  right: 15,
+                  child: Icon(
+                    Icons.smart_display,
+                    color: Colors.white,
+                  ),
+                ),
+                Positioned(
+                  bottom: 15,
+                  child: ClipRect(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+                      child: Container(
+                        width: 340,
+                        height: 46,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: [
+                              Color.fromRGBO(255, 255, 255, 0.5),
+                              Color.fromRGBO(255, 255, 255, 0.2),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 15),
+                            Row(
+                              children: [
+                                Image.asset('assets/images/icon_hart.png'),
+                                const SizedBox(width: 6),
+                                const Text(
+                                  '2.5 k',
+                                  style: TextStyle(
+                                      fontFamily: 'GB',
+                                      fontSize: 14,
+                                      color: Colors.white),
+                                )
+                              ],
+                            ),
+                            const SizedBox(width: 42),
+                            Row(
+                              children: [
+                                Image.asset('assets/images/icon_comments.png'),
+                                const SizedBox(width: 6),
+                                const Text(
+                                  '1.5 k',
+                                  style: TextStyle(
+                                      fontFamily: 'GB',
+                                      fontSize: 14,
+                                      color: Colors.white),
+                                ),
+                                const SizedBox(width: 42),
+                                Image.asset('assets/images/icon_share.png'),
+                                const SizedBox(width: 42),
+                                Image.asset('assets/images/icon_save.png'),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
-        )),
+        ),
+      ),
+    );
+  }
+
+  Padding _getHeaderPost() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 18),
+      child: Row(
+        children: [
+          _getStoryBox(),
+          const Padding(
+            padding: EdgeInsets.only(left: 12),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Alireza Seif',
+                  style: TextStyle(
+                      fontFamily: 'GB', color: Colors.white, fontSize: 12),
+                ),
+                Text(
+                  'برنامه نویس موبایل',
+                  style: TextStyle(fontFamily: 'SM', color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+          const Spacer(),
+          const Icon(Icons.more_vert, color: Colors.white),
+        ],
       ),
     );
   }
