@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/widgets.dart';
 import 'package:instagram_clone/screens/share_bottomsheet.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -28,14 +29,14 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            ElevatedButton(
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: ElevatedButton(
               child: const Text('Open BottomSheet'),
               onPressed: () {
                 showModalBottomSheet(
-                  
+
                   isScrollControlled: true,
                   barrierColor: Colors.transparent,
                   backgroundColor: Colors.transparent,
@@ -52,19 +53,27 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(
-              height: 120,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return index == 0 ? _getAddStoryBox() : _getStoryListBox();
+            ),
+            SliverToBoxAdapter(
+              child: _getStoryList(),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return Column(
+                    children: [
+                      const SizedBox(height: 34),
+                      _getHeaderPost(),
+                      const SizedBox(height: 24),
+                      _getPostContent(),
+                    ],
+                  );
                 },
               ),
             ),
-            _getPostList(),
           ],
         ),
-      )),
+      ),
     );
   }
 
@@ -249,11 +258,23 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           const Text(
-            'a',
+            'Alireza',
             style: TextStyle(color: Colors.white),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _getStoryList() {
+    return Container(
+      height: 120,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: ((context, index) {
+            return index == 0 ? _getAddStoryBox() : _getStoryListBox();
+          })),
     );
   }
 
