@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:instagram_clone/screens/share_bottomsheet.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -30,6 +31,27 @@ class HomeScreen extends StatelessWidget {
           child: SingleChildScrollView(
         child: Column(
           children: [
+            ElevatedButton(
+              child: const Text('Open BottomSheet'),
+              onPressed: () {
+                showModalBottomSheet(
+                  
+                  isScrollControlled: true,
+                  barrierColor: Colors.transparent,
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (context) {
+                    return DraggableScrollableSheet(
+                      initialChildSize: 0.4,
+                      minChildSize: 0.2,
+                      maxChildSize: 0.7,
+                      builder: (contex, controler) {
+                      return  ShareBottomSheet(controller: controler);
+                    });
+                  },
+                );
+              },
+            ),
             SizedBox(
               height: 120,
               child: ListView.builder(
@@ -39,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-           _getPostList(),
+            _getPostList(),
           ],
         ),
       )),
@@ -183,24 +205,24 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _getStoryBox(){
-    return  DottedBorder(
-            borderType: BorderType.Circle,
-            radius: const Radius.circular(17),
-            color: const Color(0xffF35383),
-            strokeWidth: 2,
-            dashPattern: const [40, 10],
-            padding: const EdgeInsets.all(4),
-            child: const ClipRRect(
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
-              ),
-              child: CircleAvatar(
-                radius: 16,
-                foregroundImage: AssetImage('assets/images/my_pf.png'),
-              ),
-            ),
-          );
+  Widget _getStoryBox() {
+    return DottedBorder(
+      borderType: BorderType.Circle,
+      radius: const Radius.circular(17),
+      color: const Color(0xffF35383),
+      strokeWidth: 2,
+      dashPattern: const [40, 10],
+      padding: const EdgeInsets.all(4),
+      child: const ClipRRect(
+        borderRadius: BorderRadius.all(
+          Radius.circular(15),
+        ),
+        child: CircleAvatar(
+          radius: 16,
+          foregroundImage: AssetImage('assets/images/my_pf.png'),
+        ),
+      ),
+    );
   }
 
   Widget _getStoryListBox() {
