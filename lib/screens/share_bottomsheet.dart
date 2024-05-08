@@ -24,14 +24,22 @@ class ShareBottomSheet extends StatelessWidget {
   }
 
   Widget _getContent() {
-    return GridView.builder(
-        controller: controller,
-        itemCount: 100,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(          
-          crossAxisCount: 4,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
-        ),
-        itemBuilder: (contex, index) {});
+    return CustomScrollView(
+      controller: controller,
+      slivers: [
+        SliverGrid(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) => Container(
+              color: Colors.blue,
+            ),
+          ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20,
+          ),
+        )
+      ],
+    );
   }
 }
