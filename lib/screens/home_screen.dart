@@ -1,8 +1,6 @@
 import 'dart:ui';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/widgets.dart';
 import 'package:instagram_clone/screens/share_bottomsheet.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -36,19 +34,22 @@ class HomeScreen extends StatelessWidget {
               child: const Text('Open BottomSheet'),
               onPressed: () {
                 showModalBottomSheet(
-
+                  
                   isScrollControlled: true,
                   barrierColor: Colors.transparent,
                   backgroundColor: Colors.transparent,
                   context: context,
                   builder: (context) {
-                    return DraggableScrollableSheet(
-                      initialChildSize: 0.4,
-                      minChildSize: 0.2,
-                      maxChildSize: 0.7,
-                      builder: (contex, controler) {
-                      return  ShareBottomSheet(controller: controler);
-                    });
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: DraggableScrollableSheet(
+                        initialChildSize: 0.4,
+                        minChildSize: 0.2,
+                        maxChildSize: 0.7,
+                        builder: (contex, controler) {
+                        return  ShareBottomSheet(controller: controler);
+                      }),
+                    );
                   },
                 );
               },
