@@ -89,16 +89,39 @@ class ShareBottomSheet extends StatelessWidget {
         SliverGrid(
           delegate: SliverChildBuilderDelegate(
             (context, index) {
-              return Container(
-                color: Colors.blue,
-              );
+              return _getItemGrid();
             },
             childCount: 100,
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
             crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
+            mainAxisSpacing: 10,
+            mainAxisExtent: 110,
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _getItemGrid() {
+    return Column(
+      children: [
+        Container(
+          width: 60,
+          height: 60,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
+            child: Image.asset('assets/images/my_pf.png'),
+          ),
+        ),
+        const SizedBox(height: 10),
+        const Text(
+          'Alireza Seif',
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'GB',
+            fontSize: 12,
           ),
         )
       ],
