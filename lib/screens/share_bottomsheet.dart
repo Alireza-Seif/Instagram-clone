@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 class ShareBottomSheet extends StatelessWidget {
   const ShareBottomSheet({super.key, this.controller});
@@ -23,83 +25,104 @@ class ShareBottomSheet extends StatelessWidget {
   }
 
   Widget _getContent() {
-    return CustomScrollView(
-      controller: controller,
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            children: [
-              Container(
-                height: 5,
-                width: 67,
-                margin: const EdgeInsets.only(top: 10, bottom: 22),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        CustomScrollView(
+          controller: controller,
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
                 children: [
-                  const Text(
-                    'Share',
-                    style: TextStyle(
-                      fontFamily: 'GB',
-                      fontSize: 20,
+                  Container(
+                    height: 5,
+                    width: 67,
+                    margin: const EdgeInsets.only(top: 10, bottom: 22),
+                    decoration: const BoxDecoration(
                       color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
                     ),
                   ),
-                  Image.asset('assets/images/icon_share_bottomsheet.png'),
-                ],
-              ),
-              const SizedBox(height: 32),
-              Container(
-                height: 46,
-                decoration: const BoxDecoration(
-                  color: Color.fromRGBO(255, 255, 255, 0.4),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(13),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset('assets/images/icon_search.png'),
-                      const SizedBox(width: 8),
-                      const Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Search User',
-                            enabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                          ),
+                      const Text(
+                        'Share',
+                        style: TextStyle(
+                          fontFamily: 'GB',
+                          fontSize: 20,
+                          color: Colors.white,
                         ),
                       ),
+                      Image.asset('assets/images/icon_share_bottomsheet.png'),
                     ],
                   ),
-                ),
+                  const SizedBox(height: 32),
+                  Container(
+                    height: 46,
+                    decoration: const BoxDecoration(
+                      color: Color.fromRGBO(255, 255, 255, 0.4),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(13),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        children: [
+                          Image.asset('assets/images/icon_search.png'),
+                          const SizedBox(width: 8),
+                          const Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Search User',
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                ],
               ),
-              const SizedBox(height: 32),
-            ],
+            ),
+            SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return _getItemGrid();
+                },
+                childCount: 100,
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 10,
+                mainAxisExtent: 110,
+              ),
+            ),
+            const SliverPadding(
+              padding: EdgeInsets.only(top: 120),
+            ),
+          ],
+        ),
+        Positioned(
+          bottom: 47,
+          child: ElevatedButton(
+            onPressed: () {},
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 45, vertical: 13),
+              child: Text(
+                'Share',
+                style: TextStyle(fontFamily: 'GB', fontSize: 16),
+              ),
+            ),
           ),
         ),
-        SliverGrid(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return _getItemGrid();
-            },
-            childCount: 100,
-          ),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 10,
-            mainAxisExtent: 110,
-          ),
-        )
       ],
     );
   }
