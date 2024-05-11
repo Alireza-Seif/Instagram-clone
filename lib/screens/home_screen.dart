@@ -251,7 +251,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _getStoryList() {
-    return Container(
+    return SizedBox(
       height: 120,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,

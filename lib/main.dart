@@ -39,7 +39,7 @@ class MainApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const SearchScreen(),
     );
   }
 }
