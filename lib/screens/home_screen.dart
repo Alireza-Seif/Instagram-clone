@@ -33,8 +33,7 @@ class HomeScreen extends StatelessWidget {
               child: ElevatedButton(
               child: const Text('Open BottomSheet'),
               onPressed: () {
-                showModalBottomSheet(
-                  
+                showModalBottomSheet(                  
                   isScrollControlled: true,
                   barrierColor: Colors.transparent,
                   backgroundColor: Colors.transparent,
@@ -60,6 +59,7 @@ class HomeScreen extends StatelessWidget {
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
+                childCount: 6,
                 (context, index) {
                   return Column(
                     children: [
@@ -78,23 +78,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  ListView _getPostList() {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: 10,
-      itemBuilder: (context, index) {
-        return Column(
-          children: [
-            const SizedBox(height: 34),
-            _getHeaderPost(),
-            const SizedBox(height: 24),
-            _getPostContent(),
-          ],
-        );
-      },
-    );
-  }
 
   Widget _getPostContent() {
     return SizedBox(
