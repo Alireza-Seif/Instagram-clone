@@ -9,38 +9,53 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xff1C1F2E),
       body: SafeArea(
-        child: GridView.custom(
-          gridDelegate: SliverQuiltedGridDelegate(
-              crossAxisCount: 3,
-              mainAxisSpacing: 3,
-              crossAxisSpacing: 3,
-              repeatPattern: QuiltedGridRepeatPattern.inverted,
-              pattern: [
-                const QuiltedGridTile(2, 1),
-                const QuiltedGridTile(2, 2),
-                const QuiltedGridTile(1, 1),
-                const QuiltedGridTile(1, 1),
-                const QuiltedGridTile(1, 1),
-              ]),
-          childrenDelegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return Container(
-                decoration: const BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                ),child: Center(child: Text('$index')),
-              );
-            },
-            childCount: 10,
+          child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(child: _getSearchBox()),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            sliver: SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                      child: FittedBox(
+                          fit: BoxFit.cover,
+                          child: Image.asset('assets/images/item$index.png')),
+                    ),
+                  );
+                },
+                childCount: 10,
+              ),
+              gridDelegate: SliverQuiltedGridDelegate(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 3,
+                  crossAxisSpacing: 3,
+                  repeatPattern: QuiltedGridRepeatPattern.inverted,
+                  pattern: [
+                    const QuiltedGridTile(2, 1),
+                    const QuiltedGridTile(2, 2),
+                    const QuiltedGridTile(1, 1),
+                    const QuiltedGridTile(1, 1),
+                    const QuiltedGridTile(1, 1),
+                  ]),
+            ),
           ),
-        ),
-      ),
+        ],
+      )),
     );
   }
 
-  Widget _getContent() {
+  Widget _getSearchBox() {
     return Column(
       children: [
         Container(
