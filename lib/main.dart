@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/screens/home_screen.dart';
+import 'package:instagram_clone/screens/add_content_screen.dart';
 import 'package:instagram_clone/screens/search_screen.dart';
 
 void main() {
@@ -39,7 +40,7 @@ class MainApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SearchScreen(),
+      home: const AddContentScreen(),
     );
   }
 }

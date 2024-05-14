@@ -19,7 +19,6 @@ class SearchScreen extends StatelessWidget {
                 (context, index) {
                   return Container(
                     decoration: const BoxDecoration(
-                      color: Colors.blue,
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       ),

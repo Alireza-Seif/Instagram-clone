@@ -29,27 +29,27 @@ flutter:
       fonts:
         - asset: assets/fonts/GilroyRegular.ttf
           weight: 400
-  
+
     - family: GM
-      fonts:
+      fonts:   
         - asset: assets/fonts/GilroyMedium.ttf
           weight: 500
-  
+
     - family: GB
       fonts:
         - asset: assets/fonts/GilroyBold.ttf
           weight: 700
-  
+
     - family: GEB
       fonts:
         - asset: assets/fonts/GilroyExtraBold.ttf
           weight: 800
-  
+
     - family: GH
       fonts:
         - asset: assets/fonts/GilroyHeavy.ttf
           weight: 900
-  
+
     - family: SM
       fonts:
         - asset: assets/fonts/ShabnamMedium.ttf
