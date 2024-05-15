@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/constants/colors.dart';
 
 class SwitchAccountScreen extends StatelessWidget {
   const SwitchAccountScreen({super.key});
@@ -8,7 +9,7 @@ class SwitchAccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1C1F2E),
+      backgroundColor: CustomColor.scaffoldBg,
       body: Column(
         children: [
           Expanded(

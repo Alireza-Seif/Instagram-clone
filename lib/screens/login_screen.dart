@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/constants/colors.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -74,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Expanded(
           child: Container(
             decoration: const BoxDecoration(
-              color: Color(0xff1C1F2E),
+              color: CustomColor.scaffoldBg,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(15),
                 topRight: Radius.circular(15),
@@ -117,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontFamily: 'GM',
                         fontSize: 20,
                         color: negahban1.hasFocus
-                            ? const Color(0xffF35383)
+                            ? CustomColor.red1
                             : Colors.white,
                       ),
                       enabledBorder: const OutlineInputBorder(
@@ -134,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Radius.circular(15),
                         ),
                         borderSide: BorderSide(
-                          color: Color(0xffF35383),
+                          color: CustomColor.red1,
                           width: 3.0,
                         ),
                       ),
@@ -154,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontFamily: 'GM',
                         fontSize: 20,
                         color: negahban2.hasFocus
-                            ? const Color(0xffF35383)
+                            ? CustomColor.red1
                             : Colors.white,
                       ),
                       enabledBorder: const OutlineInputBorder(
@@ -169,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Radius.circular(15),
                         ),
                         borderSide:
-                            BorderSide(color: Color(0xffF35383), width: 3.0),
+                            BorderSide(color: CustomColor.red1, width: 3.0),
                       ),
                     ),
                   ),

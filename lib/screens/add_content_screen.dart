@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/constants/colors.dart';
 
 class AddContentScreen extends StatelessWidget {
   const AddContentScreen({super.key});
@@ -6,7 +7,7 @@ class AddContentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1C1F2E),
+      backgroundColor: CustomColor.scaffoldBg,
       body: Stack(
         alignment: AlignmentDirectional.bottomCenter,
         children: [
@@ -15,7 +16,7 @@ class AddContentScreen extends StatelessWidget {
             height: 83,
             width: double.infinity,
             decoration: const BoxDecoration(
-              color: Color(0xff272B40),
+              color: CustomColor.scaffoldBg2,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(15),
                 topRight: Radius.circular(15),
@@ -31,7 +32,7 @@ class AddContentScreen extends StatelessWidget {
                     'Draft',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Color(0xffF35383),
+                        color: CustomColor.red1,
                         fontFamily: 'GB'),
                   ),
                   Text(

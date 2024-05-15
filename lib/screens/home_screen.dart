@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:instagram_clone/constants/colors.dart';
 import 'package:instagram_clone/screens/share_bottomsheet.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,10 +10,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1C1F2E),
+      backgroundColor: CustomColor.scaffoldBg,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color(0xff1C1F2E),
+        backgroundColor: CustomColor.scaffoldBg,
         title: SizedBox(
             width: 128,
             height: 24,
@@ -202,7 +203,7 @@ class HomeScreen extends StatelessWidget {
     return DottedBorder(
       borderType: BorderType.Circle,
       radius: const Radius.circular(17),
-      color: const Color(0xffF35383),
+      color: CustomColor.red1,
       strokeWidth: 2,
       dashPattern: const [40, 10],
       padding: const EdgeInsets.all(4),
@@ -226,7 +227,7 @@ class HomeScreen extends StatelessWidget {
           DottedBorder(
             borderType: BorderType.Circle,
             radius: const Radius.circular(17),
-            color: const Color(0xffF35383),
+            color: CustomColor.red1,
             strokeWidth: 2,
             dashPattern: const [40, 10],
             padding: const EdgeInsets.all(4),
@@ -279,7 +280,7 @@ class HomeScreen extends StatelessWidget {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                color: const Color(0xff1C1F2E),
+                color: CustomColor.scaffoldBg,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Image.asset('assets/images/icon_plus.png'),

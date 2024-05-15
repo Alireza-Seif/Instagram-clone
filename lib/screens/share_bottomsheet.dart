@@ -130,7 +130,7 @@ class ShareBottomSheet extends StatelessWidget {
   Widget _getItemGrid() {
     return Column(
       children: [
-        Container(
+        SizedBox(
           width: 60,
           height: 60,
           child: ClipRRect(
