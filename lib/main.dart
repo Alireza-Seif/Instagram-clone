@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/screens/activity_screen.dart';
-import 'package:instagram_clone/screens/user_profile_screen.dart';
+import 'package:instagram_clone/screens/main_screen.dart';
 
 
 void main() {
@@ -40,7 +39,7 @@ class MainApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const UserProfileScreen(),
+      home: const MainScreen(),
     );
   }
 }

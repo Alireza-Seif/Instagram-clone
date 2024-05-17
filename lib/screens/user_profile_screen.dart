@@ -78,7 +78,8 @@ class UserProfileScreen extends StatelessWidget {
                 CustomScrollView(
                   slivers: [
                     SliverPadding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 18, right: 18),
                       sliver: SliverGrid(
                         delegate: SliverChildBuilderDelegate(
                           (context, index) {
@@ -118,7 +119,8 @@ class UserProfileScreen extends StatelessWidget {
                 CustomScrollView(
                   slivers: [
                     SliverPadding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 18, right: 18),
                       sliver: SliverGrid(
                         delegate: SliverChildBuilderDelegate(
                           (context, index) {
@@ -174,12 +176,12 @@ class UserProfileScreen extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.all(width: 2, color: CustomColor.red1),
               borderRadius: const BorderRadius.all(
-                Radius.circular(15),
+                Radius.circular(50),
               ),
             ),
             child: ClipRRect(
               borderRadius: const BorderRadius.all(
-                Radius.circular(15),
+                Radius.circular(40),
               ),
               child: Image.asset(
                 'assets/images/my_pf.png',
